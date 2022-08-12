@@ -1,0 +1,57 @@
+#Functions and lists
+
+# 1
+#adding module for generating random numbers
+import random
+#function for reflection the list/
+#Function arguments - as a list
+def show(a):
+    #length of the function
+    n=len(a)
+    #first phrase
+    print(n, " D - vector: <",  sep= "",  end="")
+    #cycle for reflection the elements
+    for i in range (n-1):
+        #reflcet lists elements
+        print (a[1], end= "|")
+    #reflect the last element in the list
+    print (a[n-1],  ">.",  sep="")
+# Function for creating the list with random integer elements
+#Function argument  -the number of elements in the list
+def rand_vector(n):
+    #empty list
+    r=[]
+    #cycle for adding new elements in the end of the list
+    for i in range (n):
+        #adding random number  in the end of the list
+        r.append(random.randint(0,6))
+    return r
+#A function to calculate the scalar product  of two vectors
+#Arguments of functions are lists
+def scal_prod (a,b):
+    #The length of the first list
+    Na=len(a)
+    #The length of the second list
+    Nb=len(b)
+    #the smallest from two values
+    N=min(Na,Nb)
+    # The initial value of the sum(determined via the scalar product)
+    s=0
+    #cycle for calculating the sum
+    for i in range (N):
+        s+=a[i]*b[i]
+    return s
+#Initialization of the generator of random values
+random.seed (2014)
+#first randon vector
+a=rand_vector(3)
+#second randon vector
+b=rand_vector(5)
+#reflect first vector
+show(a)
+#reflect second vector
+show(b)
+#calculate scalar sum
+p=scal_prod(a,b)
+#reflect result
+print (p)
