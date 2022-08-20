@@ -121,3 +121,68 @@ show_matrix(A2)
 
 print("Product of two matrix is ")
 show_matrix(A3)
+
+
+#3
+#module for generating random numbers
+from random import *
+#the function for creating matrix with random elements
+def rand_matrix(n,m):
+    #create matrix with random numbers
+    A=[ [randint(0,9) for j in range (m)] for i in range (n)]
+    #result of function
+    return A
+#function for unit matrix
+def unit_matrix (n):
+    #unit matrix
+    A=[ [int(i==j) for i in range (n)]  for j in range (n)]
+    #result of function
+    return A
+#function for calculation of product of two matrix
+def mult_matrix (A,B):
+    #size of matrix
+    n=len(A)
+    #Matrix  -result with zero meaning
+    C=[[0 for i in range(n)] for j in range (n)]
+    #first index
+    for i in range (n):
+        #second index
+        for j in range (n):
+            #inner index for which we take sum
+            for k in range(n):
+                #add product in sum
+                C[i][j]+=A[i][k]*B[k][j]
+                #result
+            return C
+#function for reflection of function
+def show_matrix(A):
+    # sorting rows
+    for a in A:
+        # sorting elements in rows
+        for b in a:
+            print (b, end="")
+
+        print()
+seed(2014)
+#matrix with random elements
+A=rand_matrix(3,5);
+#matrix as a list
+print ("list" , A )
+#matrix as it is
+print ("this matrix is ")
+show_matrix (A)
+E=unit_matrix(4)
+#reflect matrix
+print ("Unit matrix is ")
+show_matrix(E)
+A1=rand_matrix(3,3)
+A2=rand_matrix(3,3)
+A3=mult_matrix(A1,A2)
+print("First matrix is ")
+show_matrix(A1)
+
+print("Second matrix is ")
+show_matrix(A2)
+
+print("Product of two matrix is ")
+show_matrix(A3)
